@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Generate from './components/Generate.js'
 
 class App extends Component {
   render() {
@@ -8,6 +9,7 @@ class App extends Component {
       <div className="App">
         <div id='header'>
           <button id='btn' onClick='generate()'>Generate Idea</button>
+          <div id='generate'></div>
         </div>
       </div>
     );
