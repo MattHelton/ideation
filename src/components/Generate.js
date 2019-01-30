@@ -1,18 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom'
 
-export class Generate extends Component {
+class Generate extends React.Component {
 
-    choices = ['“Beginners guide to...”', 'Buying/gift guide', 'Checklist', 'Comparison piece', 'Create a calendar of upcoming events', 'FAQ', 'Flow chart', '“How to...”', 'Interview industry experts (inside or outside your company)', 'Links roundup', 'List of things to do/never do', 'Mythbusting article', 'Predict future trends', 'Quote piece', 'The biggest influences/influencers', 'Timeline', 'Top 10 list', 'Update old content', 'Write a review/recommend a product, service, etc', '“x things to learn from...” (this could be a conference, event, TV show, movie, anything)']
+    state = {
+        choices: ['“Beginners guide to...”', 'Buying/gift guide', 'Checklist', 'Comparison piece', 'Create a calendar of upcoming events', 'FAQ', 'Flow chart', '“How to...”', 'Interview industry experts (inside or outside your company)', 'Links roundup', 'List of things to do/never do', 'Mythbusting article', 'Predict future trends', 'Quote piece', 'The biggest influences/influencers', 'Timeline', 'Top 10 list', 'Update old content', 'Write a review/recommend a product, service, etc', '“x things to learn from...” (this could be a conference, event, TV show, movie, anything)'],
+        chosenIdea: ''
+    }
+    
     randomizer() {
         return Math.floor((Math.random() * 20))
-      }
-    chooseIdea() {
-        return this.choices[this.randomizer()]
     }
+
+    chooseIdea = () => {
+        const chosenIdea = this.state.choices[this.randomizer()]
+        this.setState({ chosenIdea })
+    }
+
+
     render() {
-        console.log(this.chooseidea)
-        return  <h3>{this.chooseIdea()}</h3>
+        return (
+            <div>
+                <button onClick={this.chooseIdea}>Generate</button>
+                <div>{this.state.chosenIdea}</div>
+            </div>
+        )
     }
 
 }
+
+export default Generate
