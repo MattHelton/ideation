@@ -21,8 +21,8 @@ class Generate extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.chooseIdea}>Generate</button>
-                <div>{this.state.chosenIdea}</div>
+                <button id='btn' onClick={this.chooseIdea}>Generate</button>
+                <div id='idea'>{this.state.chosenIdea}</div>
             </div>
         )
     }
